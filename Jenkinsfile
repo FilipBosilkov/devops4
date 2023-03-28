@@ -4,7 +4,7 @@ node {
                 checkout scm
         }
         stage('Build image') {
-          app=docker.build("FilipBosilkov/kiii/tree/master/jenkins")
+          app=docker.build("FilipBosilkov/devops4")
         }
         stage('Push image') {
                 docker.withRegistry('https://registry.hub.docker.com', 'docker') {
