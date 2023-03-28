@@ -8,7 +8,7 @@ node {
         }
 	stage('Push image') {
     	docker.withRegistry('https://registry.hub.docker.com', 'docker') {
-                        app.push
+                        app.push()
     }
   }
 }
