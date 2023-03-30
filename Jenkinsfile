@@ -4,11 +4,12 @@ node {
                 checkout scm
         }
         stage('Build image') {
-          app=docker.build("fbosilkov/devops4")
+          app=docker.build("fbosilkov/devops5")
         }
 	stage('Push image') {
     	docker.withRegistry('https://registry.hub.docker.com', 'docker') {
-                        app.push()
+                        app.push("${env.BRANCH_NAME}-${env.BUILD_NUMBER}")
+			app.push("${env.BRANCH_NAME}-latest")
     }
   }
 }
