@@ -4,7 +4,7 @@ node {
                 checkout scm
         }
         stage('Build image') {
-          app=docker.build("filipbosilkov/devops4")
+          app=docker.build("fbosilkov/devops4")
         }
 	stage('Push image') {
     	docker.withRegistry('https://registry.hub.docker.com', 'docker') {
